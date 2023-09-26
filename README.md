@@ -13,6 +13,8 @@ Interface criada com React e NodeJs,Tailwind,Shadcn/ui e Radix Ui durante a Next
 - ✅ Shadcn/ui -Styles components
 - ✅ Tailwindcss
 - ✅ Lucide-react - Lib icons
+- ✅ Using React Hooks
+- ✅ Using lib FFMPEG
 
 <br/>
 
