@@ -21,3 +21,4 @@ export async function loadingFFmpeg() {
   }
   return ffmpeg
 }
+//  Using web Assembly
