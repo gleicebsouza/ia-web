@@ -1,12 +1,6 @@
-import { api } from '@/lib/axios'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@radix-ui/react-select'
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { api } from "@/lib/axios";
 
 interface Prompt {
   id: string
@@ -27,32 +21,28 @@ export function PromptSelect(props: PromptSelectProps) {
     })
   }, [])
 
-  //buscar os prompts na lista
   function handlePromptSelected(promptId: string) {
     const selectedPrompt = prompts?.find(prompt => prompt.id === promptId)
 
     if (!selectedPrompt) {
       return
     }
-      props.onPromptSelected(selectedPrompt?.template)
+
+    props.onPromptSelected(selectedPrompt.template)
   }
 
   return (
     <Select onValueChange={handlePromptSelected}>
       <SelectTrigger>
-        <SelectValue placeholder="Selecione um prompt ..." />
+        <SelectValue placeholder="Selecione um prompt..." />
       </SelectTrigger>
       <SelectContent>
         {prompts?.map(prompt => {
           return (
-            <SelectItem key={prompt.id} value={prompt.id}>
-              {prompt.title}
-            </SelectItem>
+            <SelectItem key={prompt.id} value={prompt.id}>{prompt.title}</SelectItem>
           )
         })}
-        {/*         <SelectItem value="title">Título do YouTube</SelectItem>
-        <SelectItem value="Description"> Descrição do YouTube</SelectItem> */}
       </SelectContent>
     </Select>
-  )
+  );
 }
